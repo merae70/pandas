@@ -1,5 +1,5 @@
 # Решения задач средней сложности '30 days of pandas' от leetcode
-
+```
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
@@ -8,13 +8,14 @@
 | department  | varchar |
 | managerId   | int     |
 +-------------+---------+
-id is the primary key (column with unique values) for this table.
-Each row of this table indicates the name of an employee, their department, and the id of their manager.
-If managerId is null, then the employee does not have a manager.
-No employee will be the manager of themself.
+```
+**id** is the primary key (column with unique values) for this table.<br/>
+Each row of this table indicates the name of an employee, their department, and the id of their manager.<br/>
+If managerId is null, then the employee does not have a manager.<br/>
+No employee will be the manager of themself.<br/>
 
-(1) Write a solution to find managers with at least five direct reports.
-Return the result table in any order.
+(1) Write a solution to find managers with at least five direct reports.<br/>
+Return the result table in any order.<br/>
 
 ```
 def find_managers(employee: pd.DataFrame) -> pd.DataFrame:
@@ -29,8 +30,8 @@ def find_managers(employee: pd.DataFrame) -> pd.DataFrame:
 
     return employee[employee['id'].isin(managers)][['name']]
 ```
-(2) Write a solution to find employees who have the highest salary in each of the departments.
-Return the result table in any order.
+(2) Write a solution to find employees who have the highest salary in each of the departments.<br/>
+Return the result table in any order.<br/>
 
 ```
 def department_highest_salary(employee: pd.DataFrame, department: pd.DataFrame) -> pd.DataFrame:
@@ -66,22 +67,23 @@ def nth_highest_salary(employee: pd.DataFrame, N: int) -> pd.DataFrame:
 
     return pd.DataFrame({'getNthHighestSalary({})'.format(N) : [unique_salaries.iloc[N - 1]]})
 ```
-
+```
 +-------------+------+
 | Column Name | Type |
 +-------------+------+
 | account_id  | int  |
 | income      | int  |
 +-------------+------+
-account_id is the primary key (column with unique values) for this table.
-Each row contains information about the monthly income for one bank account.
+```
+**account_id** is the primary key (column with unique values) for this table.<br/>
+Each row contains information about the monthly income for one bank account.<br/>
 
 (5) Write a solution to calculate the number of bank accounts for each salary category. The salary categories are:
 
-"Low Salary": All the salaries strictly less than $20000.
-"Average Salary": All the salaries in the inclusive range [$20000, $50000].
-"High Salary": All the salaries strictly greater than $50000.
-The result table must contain all three categories. If there are no accounts in a category, return 0.
+"Low Salary": All the salaries strictly less than $20000.<br/>
+"Average Salary": All the salaries in the inclusive range [$20000, $50000].<br/>
+"High Salary": All the salaries strictly greater than $50000.<br/>
+The result table must contain all three categories. If there are no accounts in a category, return 0.<br/>
 
 ```
 def count_salary_categories(accounts: pd.DataFrame) -> pd.DataFrame:
@@ -94,20 +96,22 @@ def count_salary_categories(accounts: pd.DataFrame) -> pd.DataFrame:
         ]
         })
 ```
+```
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
 | id          | int     |
 | score       | decimal |
 +-------------+---------+
-id is the primary key (column with unique values) for this table.
-Each row of this table contains the score of a game. Score is a floating point value with two decimal places.
+```
+**id** is the primary key (column with unique values) for this table.<br/>
+Each row of this table contains the score of a game. Score is a floating point value with two decimal places.<br/>
 
 (6) Write a solution to find the rank of the scores. The ranking should be calculated according to the following rules:
 
-The scores should be ranked from the highest to the lowest.
-If there is a tie between two scores, both should have the same ranking.
-After a tie, the next ranking number should be the next consecutive integer value. In other words, there should be no holes between ranks.
+The scores should be ranked from the highest to the lowest.<br/>
+If there is a tie between two scores, both should have the same ranking.<br/>
+After a tie, the next ranking number should be the next consecutive integer value. In other words, there should be no holes between ranks.<br/>
 
 ```
 def order_scores(scores: pd.DataFrame) -> pd.DataFrame:
